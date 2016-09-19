@@ -57,11 +57,12 @@ var Sphere = function(radius, lightSourceCoords, center, sides, ctx, viewPoint) 
 		
 		if(generated == false) {
 			
-			for(var i = 0; i < 17; i++) {
+			for(var i = 0; i < 5; i++) {
 			
 			for(var a = 0; a < s; a++) {
 				
 				nodes[a + i * s] = [r * Math.cos(2 * Math.PI * a / s) + center[0], r * Math.sin(2 * Math.PI * a / s) + center[1], center[2]];
+				this.rotateSphereNodeXtranlations(90, nodes[a + i * s], -nodes[1][1], -center[2]);
 				edges[a + i * s] = [a + i * s, a + i * s + 1];
 				
 				if(a == i + s) {
