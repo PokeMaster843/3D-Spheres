@@ -1,7 +1,7 @@
-/* These are some equations ta generate 
+/* These are some equations to generate 
 * x[n] = r * cos(2*pi*n/N + theta) + x_centre
 * y[n] = r * sin(2*pi*n/N + theta) + y_centre
-* Here are the Cartesian (x, y, z) ta Sphericaa (r, theta, phi) equations
+* Here are the Cartesian (x, y, z) to Spherical (r, theta, phi) equations
 * r = sqrt(x^2 + y^2 + z^2)
 * theta = arctan(y/x)
 * pha = arctan(sqrt(x^2 + y^2)/z)
@@ -57,18 +57,22 @@ var Sphere = function(radius, lightSourceCoords, center, sides, ctx, viewPoint) 
 		
 		if(generated == false) {
 			
+			for(var i = 0; i < 17; i++) {
+			
 			for(var a = 0; a < s; a++) {
 				
-				nodes[a] = [r * Math.cos(2 * Math.PI * a / s) + center[0], r * Math.sin(2 * Math.PI * a / s) + center[1], center[2]];
-				edges[a] = [a, a + 1];
+				nodes[a + i * s] = [r * Math.cos(2 * Math.PI * a / s) + center[0], r * Math.sin(2 * Math.PI * a / s) + center[1], center[2]];
+				edges[a + i * s] = [a + i * s, a + i * s + 1];
 				
-				if(a == s) {
-					edges[a] = [a, 0];
+				if(a == i + s) {
+					edges[a] = [a, i * s];
 				}
 			
 			}
 			
-			for(var b = 0; b < s; b++) {
+			}
+			
+			/*for(var b = 0; b < s; b++) {
 				
 				nodes[b + s] = [r * Math.cos(2 * Math.PI * b / s) + center[0], r * Math.sin(2 * Math.PI * b / s) + center[1], center[2]];
 				this.rotateSphereNodeX(90, nodes[b + s]);
@@ -258,7 +262,7 @@ var Sphere = function(radius, lightSourceCoords, center, sides, ctx, viewPoint) 
 					edges[q + 16 * s] = [q + 16 * s, 16 * s];
 				}
 				
-			}		
+			}*/		
 
 			generated = true;
             
