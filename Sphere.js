@@ -57,23 +57,18 @@ var Sphere = function(radius, lightSourceCoords, center, sides, ctx, viewPoint) 
 		
 		if(generated == false) {
 			
-			for(var i = 0; i < 5; i++) {
-			
 			for(var a = 0; a < s; a++) {
 				
-				nodes[a + i * s] = [r * Math.cos(2 * Math.PI * a / s) + center[0], r * Math.sin(2 * Math.PI * a / s) + center[1], center[2]];
-				this.rotateSphereNodeXtranlations(90, nodes[a + i * s], -nodes[1][1], -center[2]);
-				edges[a + i * s] = [a + i * s, a + i * s + 1];
+				nodes[a] = [r * Math.cos(2 * Math.PI * a / s) + center[0], r * Math.sin(2 * Math.PI * a / s) + center[1], center[2]];
+				edges[a] = [a, a + 1];
 				
-				if(a == i + s) {
-					edges[a] = [a, i * s];
+				if(a == s) {
+					edges[a] = [a, 0];
 				}
 			
 			}
 			
-			}
-			
-			/*for(var b = 0; b < s; b++) {
+			for(var b = 0; b < s; b++) {
 				
 				nodes[b + s] = [r * Math.cos(2 * Math.PI * b / s) + center[0], r * Math.sin(2 * Math.PI * b / s) + center[1], center[2]];
 				this.rotateSphereNodeX(90, nodes[b + s]);
@@ -133,7 +128,7 @@ var Sphere = function(radius, lightSourceCoords, center, sides, ctx, viewPoint) 
 				
 			}
 
-			for(var g = 0; g < s; g++) {
+			/*for(var g = 0; g < s; g++) {
 				
 				nodes[g + 6 * s] = [r * Math.cos(2 * Math.PI * g / s) + center[0], r * Math.sin(2 * Math.PI * g / s) + center[1], center[2]];
 				this.rotateSphereNodeY(90, nodes[g + 6 * s]);
