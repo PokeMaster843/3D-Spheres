@@ -1,8 +1,8 @@
 var canvas = document.getElementById("mainCanvas");
 var ctx = canvas.getContext("2d");
 var spheres = [];
+var cam = new Camera([0, 0, 0], [0, 0, 0]);
 var radius = 40;
-var viewPoint = [450, 250, -200];
 var colors = [[0, 255, 255], [255, 255, 0], [255, 0, 255], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 128, 0]];
 var up = false;
 
@@ -51,12 +51,13 @@ var update = setInterval(function() {
 		//sphere.rotateSphereY(y - py);
 		//sphere2.rotateSphereX(x - px);
 		//sphere2.rotateSphereY(y - py);
-		for(var sphere = 0; sphere < 7; sphere++) {
+		cam.rotateCamera(x - px, y - py, 0);
+		/*for(var sphere = 0; sphere < 7; sphere++) {
 			
 			spheres[sphere].rotateSphereX(x - px);
 			spheres[sphere].rotateSphereY(y - py);
 			
-		}
+		}*/
 		
 	}
 	
