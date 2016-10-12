@@ -26,7 +26,7 @@ var Camera = function(coords, angles) {
       
       var vecX = cY * (sZ * y + cZ * x) - sY * z;
       var vecY = sX * (cY * z + sY * (sZ * y + cZ * x)) + cX * (cZ * y - sZ * x);
-      var vecZ = 0;
+      var vecZ = cX * (cY * z + sY * (sZ * y + cZ * x)) - sX * (cZ * y - sZ * x);
       
     }
     
