@@ -18,6 +18,18 @@ var Camera = function(coords, angles) {
   
   this.addPerspective = function(obj) {
     
+    for(var i = 0; i < obj.nodes.length; i++) {
+      
+      var cX = Math.cos(angles[0]), cY = Math.cos(angles[1]), cZ = Math.cos(angles[2]);
+      var sX = Math.sin(angles[0]), sY = Math.sin(angles[1]), sZ = Math.sin(angles[2]);
+      var x = (obj.nodes[i][0] - coords[0]), y = (obj.nodes[i][1] - coords[1]), z = (obj.nodes[i][2] - coords[2]);
+      
+      var vecX = cY * (sZ * y + cZ * x) - sY * z;
+      var vecY = sX * (cY * z + sY * (sZ * y + cZ * x)) + cX * (cZ * y - sZ * x);
+      var vecZ = 0;
+      
+    }
+    
   };
   
 };
