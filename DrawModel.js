@@ -31,7 +31,7 @@ document.addEventListener("mousemove", function(e) {
 
 var update = setInterval(function() {
 	
-	/*this.generateColorValue(0, 1);
+	this.generateColorValue(0, 1);
 	this.generateColorValue(0, 2);
 	this.generateColorValue(1, 0);
 	this.generateColorValue(1, 1);
@@ -41,7 +41,7 @@ var update = setInterval(function() {
 	this.generateColorValue(4, 1);
 	this.generateColorValue(5, 2);
 	this.generateColorValue(6, 0);
-	this.generateColorValue(6, 1);*/
+	this.generateColorValue(6, 1);
 	
 	if(clicked) {
 		
